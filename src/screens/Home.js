@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import TarefaItem from '../../.expo/Tarefaitem';
+import { Touchable } from 'react-native';
 
 
 export default function Home(){
@@ -12,7 +13,26 @@ export default function Home(){
 
             </View>
             <View style={styles.body}>
-                <TarefaItem/>
+                <TarefaItem
+                nome= 'Tarefa 2'
+                status= 'a cumprir'
+                data='24/04/2004'
+                categoria='estudo'
+                />
+                
+                <TouchableOpacity
+                        style={styles.botaoAdicionar}
+                        onPress={() =>{
+                            alert('ADICIONADO!')
+                        }}
+                        >
+
+                        <Text style={styles.botaoMais}>+</Text>
+                    </TouchableOpacity>
+
+                    
+
+            
             </View>
         </View>
     );
@@ -47,8 +67,31 @@ const styles = StyleSheet.create({
         right:15
     },
     body:{
+        backgroundColor:'white',
+        flex:1
 
+    },
+    botaoAdicionar:{
+        width:50,
+        height:50,
+        backgroundColor:'blue',
+        borderRadius:40,
+        
+        position:'absolute',
+        right:15,
+        bottom:0,
+        justifyContent:'center',
+        alignItems:'center'
+        
+        
+    },
+    botaoMais:{
+        width:100,
+        height:100,
+        fontSize:50,
+        color:'white',
+        fontWeight:'bold',
+        textAlign:'center',
     }
-
 
 });
