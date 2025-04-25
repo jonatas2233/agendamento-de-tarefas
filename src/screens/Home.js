@@ -1,7 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import TarefaItem from '../../.expo/Tarefaitem';
-import { Touchable } from 'react-native';
-
+import TarefaItem from './Tarefaitem';
 
 export default function Home(){
     return (
@@ -14,11 +12,18 @@ export default function Home(){
             </View>
             <View style={styles.body}>
                 <TarefaItem
+                nome= 'Tarefa 1'
+                status= 'a cumprir'
+                data='24/04/2004'
+                categoria='estudo'
+                />
+                <TarefaItem
                 nome= 'Tarefa 2'
                 status= 'a cumprir'
                 data='24/04/2004'
                 categoria='estudo'
                 />
+
                 
                 <TouchableOpacity
                         style={styles.botaoAdicionar}
