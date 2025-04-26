@@ -1,7 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import TarefaItem from './Tarefaitem';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home(){
+
+    const navigation =useNavigation()
+
     return (
             <View style={styles.container}>
               <View style={styles.cabecalho} >
@@ -28,7 +32,7 @@ export default function Home(){
                 <TouchableOpacity
                         style={styles.botaoAdicionar}
                         onPress={() =>{
-                            alert('ADICIONADO!')
+                            navigation.navigate('NovaTarefa')
                         }}
                         >
 
