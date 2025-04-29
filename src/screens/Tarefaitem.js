@@ -45,5 +45,5 @@ const styles = StyleSheet.create({
     },
     textoStatus:{
         color:'white'
-    }
+    },
 });

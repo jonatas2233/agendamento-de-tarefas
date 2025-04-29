@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet,TouchableOpacity,ScrollView} from 'react-native';
 import TarefaItem from './Tarefaitem';
 import { useNavigation } from '@react-navigation/native';
+
 
 export default function Home(){
 
@@ -13,8 +14,8 @@ export default function Home(){
                 <View style={styles.icone}></View>
 
 
-            </View>
-            <View style={styles.body}>
+         </View>
+            <ScrollView style={styles.body}>
                 <TarefaItem
                 nome= 'Tarefa 1'
                 status= 'a cumprir'
@@ -27,9 +28,10 @@ export default function Home(){
                 data='24/04/2004'
                 categoria='estudo'
                 />
+           </ScrollView>
 
                 
-                <TouchableOpacity
+          <TouchableOpacity
                         style={styles.botaoAdicionar}
                         onPress={() =>{
                             navigation.navigate('NovaTarefa')
@@ -37,13 +39,10 @@ export default function Home(){
                         >
 
                         <Text style={styles.botaoMais}>+</Text>
-                    </TouchableOpacity>
-
-                    
-
-            
-            </View>
-        </View>
+          </TouchableOpacity>
+ 
+         </View>
+    
     );
 }
 const styles = StyleSheet.create({
