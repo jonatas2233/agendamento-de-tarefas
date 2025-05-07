@@ -1,84 +1,121 @@
-import { View, Text, StyleSheet, TextInput} from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import { Touchable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function NovaTarefa(){
-    return(
+
+export default function NovaTarefa() {
+
+    const navigation= useNavigation();
+
+    return (
         <View>
             <View style={styles.cabecalho}>
-                <Text style={styles.titulo}>Adionar Tarefa</Text>
-                
-
+                <Text style={styles.titulo}>Adicionar Tarefa</Text>
             </View>
             <View style={styles.body}>
-                
-            
                 <Text style={styles.texto}>Nome da Tarefa:</Text>
-                <TextInput style={styles.TextImput}/>
+                <TextInput style={styles.textInput} />
 
-                <Text style={styles.texto}>Categoria da Tarefa:</Text>
-                <TextInput style={styles.TextImput}/>
+                <Text style={styles.texto}>Categotia da Tarefa:</Text>
+                <Picker style={styles.textInput}>
+                    <Picker.Item label="Estudo" value="estudo" />
+                    <Picker.Item label="Trabalho" value="trabalho" />
+                    <Picker.Item label="Reunião" value="reuniao" />
+                    <Picker.Item label="Prova" value="prova" />
+                    <Picker.Item label="Aula" value="aula" />
+                </Picker>
 
-                <Text style={styles.texto}>Selecione a categoria:</Text>
-                <TextInput style={styles.TextImput}/>
+                <Text style={styles.texto}>Descrição da Tarefa:</Text>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder='Value'
+                    multiline
+                    numberOfLines={2}
+                />
+                <TextInput
+                    style={styles.textDate}
+                    placeholder='dd/mm/yyyy'
+                    />
+
+            <View style={styles.containerBotao}>
+                    <TouchableOpacity style={styles.botao}onPress={() => navigation.goBack()}>
+                        <Text style={styles.botaoTexto}>Cancel</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.botao}>
+                        <Text style={styles.botaoTexto}>OK</Text>
+                    </TouchableOpacity>
+
+            </View>
+
                 
-            
+                
+
             </View>
         </View>
     )
 }
+
+
 const styles = StyleSheet.create({
-    container:{
-        flex:1
+    container: {
+        flex: 1
     },
-    cabecalho:{
+    cabecalho: {
         backgroundColor: 'blue',
         width: '100%',
         height: 60,
         flexDirection: 'row',
-        justifyContent:'center',
-        alignItems:'center'
-    
-    
+        justifyContent: "center",
+        alignItems: 'center'
     },
-    titulo:{
-        Color: 'white',
-        fontSize:25,
-        fontWeight:'bold',
-        textAlign:'center'
+    titulo: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
-    
-    body:{
-      
-      width: '100%',
-      height: 60,
-      fontWeight:'bold',
-      fontSize:18,
-      
-      
-      
-      padding: 10,
-      
-      
+    body: {
+        padding: 15
+    },
+    texto: {
+        marginBottom: 5
+    },
+    textInput: {
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#ccc',
+        padding: 10,
+        backgroundColor: 'white',
+        marginBottom: 15
+    },
+    textDate:{
         
+        height:60,
+        borderWidth:3,
+        borderColor:'indigo',
+        borderRadius:5,
+        margin:20,
+        marginVertical:25,
+        padding:15,
+        backgroundColor:'white'
 
     },
-    texto:{
-        fontWeight:'bold',
-        fontSize:15
+    containerBotao:{
+        flexDirection:'row',
+        justifyContent:'end',
+
 
     },
-    tarefa:{
-        
-        margin:15,
-        fontWeight:'bold'
-    },
-    imput:{
-        height:40,
-        margin:12,
-        borderWidth:1,
-        padding:10,
-        borderRadius:15
-    },
 
-});        
-        
-                
+    botao:{
+        padding:15,
+    
+
+    },
+    botaoTexto:{
+
+        color:'indigo'
+    },
+});
